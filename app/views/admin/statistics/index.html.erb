@@ -1,7 +1,6 @@
 <% provide(:title, (t "admin.statistic.title")) %>
 <h1><%= t "admin.statistic.title" %></h1>
 <div class="col-sm-12 ">
-  <form class="form-inline">
     <%= form_tag url_for(controller: "statistics", action: "index"), method: "get" do %>
       <div class="form-group">
         <label><%= t "admin.statistic.from" %></label>
@@ -15,14 +14,27 @@
       <div class="form-group">
         <%= submit_tag t("user.show.find"), class: "btn btn-default" %>
       </div>
-      <div class="form-control">
+      <div class="table">
         <% if @filter_orders.present? %>
-           <%= @filter_orders.count %><%= t "admin.statistic.result" %>
-           <%= @filter_orders.sum(:total_amount) %><%= t "admin.statistic.dola" %>
-        <% end %>
+          <h3><%= t "admin.statistic.sum" %></h3>
+          <%= @filter_orders.count %><%= t "admin.statistic.result" %>
+          <%= @filter_orders.sum(:total_amount) %><%= t "admin.statistic.dola" %>
       </div>
+      <h3><%= t "admin.statistic.in" %></h3>
+      <table>
+      <div class="table">
+          <label><%= t "admin.statistic.ordernothandle" %></label>
+          <%= @filter_orders.not_handle.count %><%= t "admin.statistic.result" %>
+          <%= @filter_orders.not_handle.sum(:total_amount) %><%= t "admin.statistic.dola" %>
+      </div>
+      <div class="table">
+          <label><%= t "admin.statistic.orderhandle" %></label>
+          <%= @filter_orders.handled.count %><%= t "admin.statistic.result" %>
+          <%= @filter_orders.handled.sum(:total_amount) %><%= t "admin.statistic.dola" %>
+      </div>
+      </table>
+        <% end %>
     <% end %>
-  </form>
 </div>
 <div class="col-lg-4">
   <div class="panel panel-primary">

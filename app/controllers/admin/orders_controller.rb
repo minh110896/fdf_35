@@ -25,6 +25,7 @@ class Admin::OrdersController < ApplicationController
 
   def update
     if @order.update_attributes order_params
+      UserMailer.mailer_status(@order).deliver_now
       flash[:success] = t "admin.updatesuc"
     else
       flash[:warning] = t "admin.updatefail"

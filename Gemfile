@@ -3,6 +3,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+gem "mysql2"
 gem "rails", "~> 5.1.4"
 gem "bcrypt", "3.1.11"
 gem "faker",  "1.7.3"
@@ -34,7 +35,6 @@ group :development, :test do
   gem "factory_girl_rails"
 end
 group :development do
-  gem "mysql2"
   gem "web-console", ">= 3.3.0"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "spring"

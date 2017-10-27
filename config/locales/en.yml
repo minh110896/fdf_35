@@ -210,6 +210,10 @@ en:
         dola: "$"
         from: "From:"
         to: "To:"
+        in: "In: "
+        sum: "Sum: "
+        ordernothandle: "Order not_handle: "
+        orderhandle: "Order handled: "
   carts:
     show:
       cart: "Your cart"
