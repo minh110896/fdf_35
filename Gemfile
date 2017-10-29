@@ -30,6 +30,8 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
+  gem "rspec-rails", "~> 3.5"
+  gem "factory_girl_rails"
 end
 group :development do
   gem "mysql2"
@@ -42,5 +44,11 @@ group :production do
   gem "pg"
   gem "rails_12factor"
 end
-
+group :test do
+  gem "rspec-activemodel-mocks"
+  gem "database_cleaner"
+  gem "shoulda-matchers", "3.0.1"
+  gem "simplecov"
+  gem "rails-controller-testing"
+end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

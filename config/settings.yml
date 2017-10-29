@@ -61,3 +61,5 @@ text:
   cols: 50
 cookie:
   life: 10
+round:
+  get: 1

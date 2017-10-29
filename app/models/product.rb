@@ -16,5 +16,10 @@ class Product < ApplicationRecord
   scope :search_price, ->(prices){where(price: prices) if prices.present?}
   scope :product_hot, ->{joins(:order_details)
     .where("MONTH(order_details.created_at) = ?", Date.today.month)
-    .group("products.id").order("sum(order_details.quanlity) DESC")   }
+    .group("products.id").order("sum(order_details.quanlity) DESC")}
+
+  def self.sum_product product
+    votes = product.ratings.pluck :vote
+    (votes.sum.to_f / votes.count).round Settings.round.get if product.ratings.present?
+  end
 end

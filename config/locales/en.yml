@@ -129,6 +129,8 @@ en:
       rating: "Rating breakdown"
       status: "Status: unavailabe"
       recently: "Recently Viewed"
+      avg: "Average user rating"
+      avgw: "/5"
   admin:
       id: "ID"
       name: "Name"

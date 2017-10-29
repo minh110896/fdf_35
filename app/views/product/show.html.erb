@@ -74,6 +74,16 @@
                 <%= will_paginate @comments %>
               <% end %>
               <div class="space20">&nbsp;</div>
+              <% if @avg_rating.present? %>
+               <div class="row">
+                  <h4><%= t "product.show.avg"%></h4>
+                  <h5>
+                    <span><%= @avg_rating %></span>
+                    <%= t "product.show.avgw"%>
+                    <span class="glyphicon glyphicon-star"></span>
+                  </h5>
+                </div>
+               <% end %>
               <div class="row">
                 <div class="col-sm-5">
                   <% if @ratings.present? %>

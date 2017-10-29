@@ -18,6 +18,7 @@ class ProductController < ApplicationController
   def load_data
     @product = Product.find_by id: params[:id]
     @ratings = Rating.show_ratings(params[:id]).order_vote
+    @avg_rating = Product.sum_product @product
     @comments = Rating.show_comment(params[:id]).order_created
       .paginate(page: params[:page], per_page: Settings.comment.config)
   end
