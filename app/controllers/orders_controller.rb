@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     @oder = Order.new
     @cart = current_cart
     @total = @cart.total_price
-    @user = session[:user_id]
+    @user = current_user.id
   end
 
   def show

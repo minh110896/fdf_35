@@ -12,9 +12,9 @@
               <% end %>
           </li>
         <% end %>
-        <% if logged_in?  %>
+        <% if user_signed_in?  %>
           <li><%= link_to t("layouts._header.suggest"), new_suggest_path %></li>
-          <% if current_user.admin?  %>
+          <% if current_user.admin? %>
             <li><%= link_to t("layouts._header.suggest"), admin_suggests_path %></li>
             <li><%= link_to t("layouts._header.category"), admin_categories_path %></li>
             <li><%= link_to t("layouts._header.product"), admin_products_path %></li>
@@ -28,14 +28,15 @@
             <ul class="dropdown-menu">
               <li><%= link_to t("layouts._header.profile"), user_path(current_user) %></li>
               <li><%= link_to t("layouts._header.history"), order_path(current_user) %></li>
+              <li><%= link_to t("layouts._header.profile"), edit_user_registration_path(current_user) %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to t("layouts._header.logout"), logout_path, method: :delete %>
+                <%= link_to t("layouts._header.logout"), destroy_user_session_path, method: :delete %>
               </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to t("layouts._header.log"), login_path %></li>
+          <li><%= link_to t("layouts._header.log"), new_user_session_path %></li>
         <% end %>
       </ul>
     </nav>

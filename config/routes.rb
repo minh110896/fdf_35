@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get "sessions/new"
   root "static_pages#index"
   get "/help", to: "static_pages#help"
