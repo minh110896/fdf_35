@@ -2,5 +2,7 @@
 <h6><%= t "admin.suggest.content" %></h6>
 <%= @suggest.content %>
 <br>
-<%= link_to "", admin_suggest_path(@suggest), method: :delete,
+<% if can? [:destroy], suggest %>
+  <%= link_to "", admin_suggest_path(@suggest), method: :delete,
     class: "fa fa-trash-o btn btn-danger", data: {confirm: (t "users.index.sure") } %>
+<% end %>

@@ -1,5 +1,6 @@
 class Admin::OrdersController < ApplicationController
   before_action :load_order, only: %i(edit destroy update show)
+  load_and_authorize_resource
 
   def index
     @orders = Order.sort_by_id

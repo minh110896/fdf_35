@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20171108033919) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
-    t.boolean "admin", default: false
+    t.integer "admin", default: 0
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

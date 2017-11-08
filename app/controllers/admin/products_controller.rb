@@ -2,6 +2,7 @@ class Admin::ProductsController < ApplicationController
   before_action :admin_user, only: :destroy
   before_action :load_product, only: %i(destroy edit update)
   before_action :check_if_has_line_item, only: :destroy
+  load_and_authorize_resource
 
   def show; end
 

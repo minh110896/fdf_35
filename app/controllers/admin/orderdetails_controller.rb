@@ -1,5 +1,6 @@
 class Admin::OrderdetailsController < ApplicationController
   before_action :load_orderdetail, only: %i(edit update show)
+  load_and_authorize_resource
 
   def show
     @order_details = OrderDetail.find_order params[:id]

@@ -1,6 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :admin_user, only: :destroy
   before_action :load_category, only: %i(edit destroy update)
+  load_and_authorize_resource
 
   def index
     @categories = Category.sort_by_category

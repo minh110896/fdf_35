@@ -1,5 +1,6 @@
 class Admin::SuggestsController < ApplicationController
   before_action :load_suggest, only: %i(destroy show)
+  load_and_authorize_resource
 
   def index
     @suggests = Suggest.order_iduser.paginate(page: params[:page],

@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   before_action :load_user, only: %i(destroy update edit)
+  load_and_authorize_resource
 
   def show; end
 
